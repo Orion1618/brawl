@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; img-src 'self' data:">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0d1a">
+<title>Cerebrawl — Join class</title>
+<style>
+  [hidden] { display: none !important; }
+  * { box-sizing: border-box; }
+  html { background: #0b0d1a; }
+  body {
+    margin: 0; min-height: 100vh; min-height: 100dvh;
+    display: flex; align-items: center; justify-content: center;
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #eceefb;
+    background: radial-gradient(ellipse at 50% 0%, #1b1440 0%, #0b0d1a 60%);
+  }
+  main { width: 100%; max-width: 26rem; padding: 32px 16px; text-align: center; }
+  .brand { font-size: .8rem; letter-spacing: .28em; text-transform: uppercase; color: #E0218A; font-weight: 700; margin: 0 0 1.25rem; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 .75rem; }
+  p { margin: .5rem 0; color: #b9bdd6; }
+  .spinner {
+    width: 40px; height: 40px; margin: 0 auto 1.25rem; border-radius: 50%;
+    border: 4px solid #2a2d4a; border-top-color: #E0218A; animation: spin .9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+  button {
+    margin-top: 1.25rem; min-height: 48px; padding: 0 28px; border: 0; border-radius: 12px;
+    background: #E0218A; color: #fff; font: inherit; font-weight: 700; cursor: pointer;
+  }
+  button:hover { background: #f03a9f; }
+  button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="brand">Cerebrawl</p>
+  <section id="connecting" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <h1>Connecting you to class&hellip;</h1>
+  </section>
+  <section id="idle" hidden aria-live="polite">
+    <h1>No Cerebrawl class is running right now</h1>
+    <p id="idle-detail">When your instructor starts class, this page will send you in. Try again in a minute.</p>
+    <button id="retry" type="button">Try again</button>
+  </section>
+  <noscript><p>This page needs JavaScript to send you to class. Please enable it and reload.</p></noscript>
+</main>
+<script src="forwarder-core.js"></script>
+<script src="forwarder.js"></script>
+</body>
+</html>
